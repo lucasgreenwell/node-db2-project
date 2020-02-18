@@ -18,7 +18,7 @@ Follow these steps for completing your project.
 - [ ] Add your _Team Lead_ as a reviewer on the pull-request
 - [ ] Your _Team Lead_ will count the project as complete by merging the branch back into master.
 
-## Minimum Viable Product
+## Minimum Viable Product 
 
 - Using `knex migrations`, design and write a schema for the `cars` table using the specifications below.
 - Configure `knex` to connect to a `/data/car-dealer.db3` database using the `sqlite3` npm module.
