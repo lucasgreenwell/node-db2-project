@@ -4,18 +4,26 @@ exports.up = function (knex) {
         tbl.increments()
         tbl.text('make', 128)
             .notNullable()
-            tbl.text('model', 128)
+        tbl.text('model', 128)
             .notNullable()
-            tbl.integer('vin')
+        tbl.integer('vin')
             .unique()
             .notNullable()
-            tbl.integer('mileage')
+        tbl.integer('mileage')
             .notNullable()
-            tbl.text('status')
-            tbl.text('transmission')
+        tbl.text('status')
+        tbl.text('transmission')
+    }).createTable('sales', tbl => {
+        tbl.increments();
+        tbl.text('emp', 128).notNullable()
+        tbl.integer('car_id')
+            .unsigned()
+            .notNullable()
+            .references('id')
+            .inTable('cars')
     })
 };
 
 exports.down = function (knex) {
-    return knex.schema.dropTableIfExists('cars')
+    return knex.schema.dropTableIfExists('sales').dropTableIfExists('cars')
 };
